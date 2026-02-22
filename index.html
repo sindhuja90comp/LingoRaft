@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LingoRaft</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">LR</div>
+      <div>
+        <div class="title">LingoRaft</div>
+        <div class="subtitle">Simple Beginner English Typing Tutor</div>
+      </div>
+    </div>
+    <div class="controls">
+      <button id="resetBtn" class="btn ghost" title="Reset session">Reset Session</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="chat">
+      <div id="lessonStage" class="lessonStage hidden" aria-live="polite">
+        <div class="lessonHeader">
+          <div id="lessonHeaderTitle" class="lessonHeaderTitle"></div>
+          <div id="lessonHeaderMeta" class="lessonHeaderMeta"></div>
+        </div>
+
+        <div class="typingCard">
+          <div id="promptTitle" class="typingLabel"></div>
+          <div id="promptTarget" class="typingTarget"></div>
+          <div id="promptHint" class="typingHint"></div>
+        </div>
+
+        <div id="feedbackCard" class="feedbackCard hidden">
+          <div id="feedbackLines"></div>
+        </div>
+
+        <div id="lessonActions" class="quickReplies lessonActionBar"></div>
+      </div>
+
+      <div id="chatLog" class="chatLog" aria-live="polite"></div>
+
+      <div class="composer">
+        <input id="userInput" class="input" placeholder="Type your answer or a command..." autocomplete="off" />
+        <button id="sendBtn" class="btn primary">Send</button>
+      </div>
+
+      <div class="quickReplies" id="quickReplies"></div>
+
+      <footer id="chatFooter" class="footer">
+        <span>Try: <strong>start typing lesson</strong> or <strong>/start typing_beginner_20min</strong></span>
+      </footer>
+    </section>
+
+    <aside class="panel">
+      <div class="card">
+        <h3>Progress</h3>
+        <p id="goalText" class="muted">Chat mode: ask for help or start a lesson.</p>
+        <div class="progress">
+          <div id="progressBarWrap" class="bar"><div id="barFill" class="fill" style="width:0%"></div></div>
+          <div id="progressText" class="muted small progressSummary">No active lesson</div>
+        </div>
+      </div>
+
+      <div id="currentLessonCard" class="card hidden">
+        <h3>Current Lesson</h3>
+        <p id="currentLessonText" class="muted small"></p>
+      </div>
+
+      <div id="lessonsPanelCard" class="card">
+        <h3>Lessons</h3>
+        <div id="lessonsList" class="lessonsList"></div>
+      </div>
+
+      <div id="commandsPanelCard" class="card">
+        <h3>Commands</h3>
+        <ul class="muted small">
+          <li>/help</li>
+          <li>/lessons</li>
+          <li>/start typing_beginner_20min</li>
+          <li>/restart</li>
+          <li>/exit</li>
+          <li>retry, skip</li>
+        </ul>
+      </div>
+    </aside>
+  </main>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
